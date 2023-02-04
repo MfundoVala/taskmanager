@@ -13,6 +13,8 @@
         public $created_at;
         public $due_date;
 
+        public $assigned_to = array();
+
         // Constructor with DB
         public function __construct($db) {
             $this->connection = $db;
@@ -22,13 +24,18 @@
         public function read_all() {
             // Create query
             $query = 'SELECT
-                id,
-                name,
-                description,
-                due_date,
-                created_at
+                e.name as assigned_to,
+                t.id,
+                t.name,
+                t.description,
+                t.due_date,
+                t.created_at
             FROM
-                ' . $this->table . '
+                ' . $this->table . ' t
+            LEFT JOIN
+                task_assignees ta ON t.id = ta.task_id
+            LEFT JOIN
+                employees e ON ta.employee_id = e.id
             ORDER BY
                 created_at DESC';
 
@@ -45,15 +52,20 @@
         public function read_single() {
             // Create query
             $query = 'SELECT
-                id,
-                name,
-                description,
-                due_date,
-                created_at
+                e.name as assigned_to,
+                t.id,
+                t.name,
+                t.description,
+                t.due_date,
+                t.created_at
             FROM
-                ' . $this->table . '
+                ' . $this->table . ' t
+            LEFT JOIN
+                task_assignees ta ON t.id = ta.task_id
+            LEFT JOIN
+                employees e ON ta.employee_id = e.id
             WHERE
-                id = ?
+                t.id = ?
             LIMIT 0,1';
 
             // Prepare statement
@@ -70,6 +82,9 @@
             // Set properties
             $this->name = $row['name'];
             $this->description = $row['description'];
+            $this->due_date = $row['due_date'];
+            $this->created_at = $row['created_at'];
+            $this->assigned_to = $row['assigned_to'];
         }
 
         // Create Task

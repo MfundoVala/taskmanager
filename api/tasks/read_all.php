@@ -4,8 +4,8 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    include_once '../../config/Database.php';
-    include_once '../../models/Task.php';
+    include_once '../config/Database.php';
+    include_once '../models/Task.php';
 
     // Instantiate DB & connect
     $database = new Database();
@@ -28,16 +28,20 @@
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
+            if (isset($tasks_arr['data'][$id])) {
+            $tasks_arr['data'][$id]["assigned_to"][] = $assigned_to;
+        } else {
             $task_item = array(
                 'id' => $id,
                 'name' => $name,
                 'description' => $description,
                 'due_date' => $due_date,
-                'created_at' => $created_at
+                'created_at' => $created_at,
+                'assigned_to' => [$assigned_to]
             );
-
             // Push to "data"
-            array_push($tasks_arr['data'], $task_item);
+            $tasks_arr['data'][$id] = $task_item;
+            }
         }
 
         // Turn to JSON & output
