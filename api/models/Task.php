@@ -12,6 +12,9 @@
         public $description;
         public $created_at;
         public $due_date;
+        public $status;
+
+        public $assign_to;
 
         public $assigned_to = array();
 
@@ -29,6 +32,7 @@
                 t.name,
                 t.description,
                 t.due_date,
+                t.status,
                 t.created_at
             FROM
                 ' . $this->table . ' t
@@ -57,6 +61,7 @@
                 t.name,
                 t.description,
                 t.due_date,
+                t.status,
                 t.created_at
             FROM
                 ' . $this->table . ' t
@@ -84,6 +89,7 @@
             $this->description = $row['description'];
             $this->due_date = $row['due_date'];
             $this->created_at = $row['created_at'];
+            $this->status = $row['status'];
             $this->assigned_to = $row['assigned_to'];
         }
 
@@ -91,10 +97,10 @@
         public function create() {
             // Create query
             $query = 'INSERT INTO ' . $this->table . '
-            SET
-                name = :name,
-                description = :description
-                due_date = :due_date';
+                SET
+                    name = :name,
+                    description = :description,
+                    due_date = :due_date';
 
             // Prepare statement
             $stmt = $this->connection->prepare($query);
@@ -102,6 +108,7 @@
             // Clean data
             $this->name = htmlspecialchars(strip_tags($this->name));
             $this->description = htmlspecialchars(strip_tags($this->description));
+            $this->due_date = htmlspecialchars(strip_tags($this->due_date));
 
             // Bind data
             $stmt->bindParam(':name', $this->name);

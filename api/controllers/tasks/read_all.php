@@ -4,8 +4,8 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    include_once '../config/Database.php';
-    include_once '../models/Task.php';
+    include_once '../../config/Database.php';
+    include_once '../../models/Task.php';
 
     // Instantiate DB & connect
     $database = new Database();
@@ -37,6 +37,7 @@
                 'description' => $description,
                 'due_date' => $due_date,
                 'created_at' => $created_at,
+                'status' => $status,
                 'assigned_to' => [$assigned_to]
             );
             // Push to "data"

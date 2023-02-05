@@ -15,25 +15,26 @@ CREATE TABLE `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `due_date` varchar(255) NOT NULL,
+  `due_date` varchar(255) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` ENUM('Open', 'In Progress', 'Complete') DEFAULT 'Open',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `assigned_to` TEXT NOT NULL DEFAULT 'a:0:{}',
   PRIMARY KEY (`id`)
 );
 
 INSERT INTO `tasks` (`id`, `name`, `description`, `due_date`, `status`) VALUES
 (1, 'Make UI Design', 'Make a UI design for the task manager app', '2020-10-10', 'Complete'),
-(2, 'Learn PHP Rest Api', 'Learn php, then learn how to make a Rest API with it', '2020-10-10', 'In Progress'),
-(3, 'Make React front end', 'Turn UI design into front end with mock data', '2020-10-10', 'Open'),
-(4, 'Connect React to API', 'Connect the front end to the API', '2020-10-10', 'Open'),
-(5, 'Make a login page', 'Make a login page for the app', '2020-10-10', 'Open'),
-(6, 'Make a register page', 'Make a register page for the app', '2020-10-10', 'Open'),
-(7, 'Make a dashboard page', 'Make a dashboard page for the app', '2020-10-10', 'Open'),
-(8, 'Make a task page', 'Make a task page for the app', '2020-10-10', 'Open'),
-(9, 'Make a profile page', 'Make a profile page for the app', '2020-10-10', 'Open'),
-(10, 'Make a settings page', 'Make a settings page for the app', '2020-10-10', 'Open'),
-(11, 'Make a logout page', 'Make a logout page for the app', '2020-10-10', 'Open'),
-(12, 'Make a 404 page', 'Make a 404 page for the app', '2020-10-10', 'Open');
+(2, 'Learn PHP Rest Api', 'Learn php, then learn how to make a Rest API with it', '2023-10-10', 'In Progress'),
+(3, 'Make React front end', 'Turn UI design into front end with mock data', '2023-10-10', 'Open'),
+(4, 'Connect React to API', 'Connect the front end to the API', '2023-10-10', 'Open'),
+(5, 'Make a login page', 'Make a login page for the app', '2023-10-10', 'Open'),
+(6, 'Make a register page', 'Make a register page for the app', '2023-10-10', 'Open'),
+(7, 'Make a dashboard page', 'Make a dashboard page for the app', '2023-10-10', 'Open'),
+(8, 'Make a task page', 'Make a task page for the app', '2023-10-10', 'Open'),
+(9, 'Make a profile page', 'Make a profile page for the app', '2023-10-10', 'Open'),
+(10, 'Make a settings page', 'Make a settings page for the app', '2023-10-10', 'Open'),
+(11, 'Make a logout page', 'Make a logout page for the app', '2023-10-10', 'Open'),
+(12, 'Make a 404 page', 'Make a 404 page for the app', '2023-10-10', 'Open');
 
 
 CREATE TABLE `task_assignees` (
