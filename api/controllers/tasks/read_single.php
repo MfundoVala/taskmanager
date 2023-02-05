@@ -27,9 +27,9 @@
         'id' => $task->id,
         'name' => $task->name,
         'description' => $task->description,
+        'status' => $task->status,
         'due_date' => $task->due_date,
-        'created_at' => $task->created_at,
-        'assigned_to' => $task->assigned_to
+        'assigned_to' => json_encode(unserialize($task->assigned_to))
     );
 
     // Make JSON

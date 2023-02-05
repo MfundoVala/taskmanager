@@ -14,9 +14,7 @@
         public $due_date;
         public $status;
 
-        public $assign_to;
-
-        public $assigned_to = array();
+        public $assigned_to;
 
         // Constructor with DB
         public function __construct($db) {
@@ -27,21 +25,16 @@
         public function read_all() {
             // Create query
             $query = 'SELECT
-                e.name as assigned_to,
-                t.id,
-                t.name,
-                t.description,
-                t.due_date,
-                t.status,
-                t.created_at
+                id,
+                name,
+                description,
+                due_date,
+                status,
+                assigned_to
             FROM
-                ' . $this->table . ' t
-            LEFT JOIN
-                task_assignees ta ON t.id = ta.task_id
-            LEFT JOIN
-                employees e ON ta.employee_id = e.id
+                ' . $this->table . '
             ORDER BY
-                created_at DESC';
+                due_date DESC';
 
             // Prepare statement
             $stmt = $this->connection->prepare($query);
@@ -56,21 +49,16 @@
         public function read_single() {
             // Create query
             $query = 'SELECT
-                e.name as assigned_to,
-                t.id,
-                t.name,
-                t.description,
-                t.due_date,
-                t.status,
-                t.created_at
+                id,
+                name,
+                description,
+                due_date,
+                status,
+                assigned_to
             FROM
-                ' . $this->table . ' t
-            LEFT JOIN
-                task_assignees ta ON t.id = ta.task_id
-            LEFT JOIN
-                employees e ON ta.employee_id = e.id
+                ' . $this->table . '
             WHERE
-                t.id = ?
+                id = ?
             LIMIT 0,1';
 
             // Prepare statement
@@ -88,7 +76,6 @@
             $this->name = $row['name'];
             $this->description = $row['description'];
             $this->due_date = $row['due_date'];
-            $this->created_at = $row['created_at'];
             $this->status = $row['status'];
             $this->assigned_to = $row['assigned_to'];
         }
@@ -133,7 +120,8 @@
             SET
                 name = :name,
                 description = :description,
-                due_date = :due_date
+                due_date = :due_date,
+                assigned_to = :assigned_to
             WHERE
                 id = :id';
 
@@ -144,12 +132,14 @@
             $this->name = htmlspecialchars(strip_tags($this->name));
             $this->description = htmlspecialchars(strip_tags($this->description));
             $this->id = htmlspecialchars(strip_tags($this->id));
+            $this->due_date = htmlspecialchars(strip_tags($this->due_date));
 
             // Bind data
             $stmt->bindParam(':name', $this->name);
             $stmt->bindParam(':description', $this->description);
             $stmt->bindParam(':due_date', $this->due_date);
             $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':assigned_to', $this->assigned_to);
 
             // Execute query
             if($stmt->execute()) {
@@ -157,7 +147,7 @@
             }
 
             // Print error if something goes wrong
-            printf("Error: %s.\n", $stmt->error);
+            echo json_encode("Error: %s.\n", $stmt->error);
 
             return false;
         }

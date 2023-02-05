@@ -35,26 +35,3 @@ INSERT INTO `tasks` (`id`, `name`, `description`, `due_date`, `status`) VALUES
 (10, 'Make a settings page', 'Make a settings page for the app', '2023-10-10', 'Open'),
 (11, 'Make a logout page', 'Make a logout page for the app', '2023-10-10', 'Open'),
 (12, 'Make a 404 page', 'Make a 404 page for the app', '2023-10-10', 'Open');
-
-
-CREATE TABLE `task_assignees` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `task_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `task_assignees` (`id`, `task_id`, `employee_id`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 3),
-(4, 4, 1),
-(5, 5, 2),
-(6, 6, 3),
-(7, 7, 1),
-(8, 8, 2),
-(9, 9, 3),
-(10, 10, 1),
-(11, 11, 2),
-(12, 12, 3);
