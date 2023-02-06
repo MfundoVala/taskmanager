@@ -121,7 +121,8 @@
                 name = :name,
                 description = :description,
                 due_date = :due_date,
-                assigned_to = :assigned_to
+                assigned_to = :assigned_to,
+                status = :status
             WHERE
                 id = :id';
 
@@ -133,6 +134,7 @@
             $this->description = htmlspecialchars(strip_tags($this->description));
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->due_date = htmlspecialchars(strip_tags($this->due_date));
+            // $this->status = htmlspecialchars(strip_tags($this->status));
 
             // Bind data
             $stmt->bindParam(':name', $this->name);
@@ -140,6 +142,7 @@
             $stmt->bindParam(':due_date', $this->due_date);
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':assigned_to', $this->assigned_to);
+            $stmt->bindParam(':status', $this->status);
 
             // Execute query
             if($stmt->execute()) {

@@ -28,6 +28,7 @@
     $task->description = $data->description;
     $task->due_date = $data->due_date;
     $task->assigned_to = serialize($data->assigned_to);
+    $task->status = $data->status;
     
 
     // Create task
