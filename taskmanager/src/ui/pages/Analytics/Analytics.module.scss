@@ -1,15 +1,13 @@
 @use "../../variables" as *;
 
 .Analytics {
-  background-color: $backgroundAccent;
+  //   background-color: $backgroundAccent;
   height: 73%;
   width: 72vw;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   overflow-y: scroll;
   padding: 1rem;
-  padding-top: 15vh;
   border-radius: 25px 25px 0 0;
   flex: 6;
   position: fixed;
