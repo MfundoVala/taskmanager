@@ -5,6 +5,7 @@ import {
   updateTask,
   createNewTask,
   deleteTask,
+  fetchTasks,
 } from "../../../services/api.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -33,6 +34,7 @@ const Dashboard = () => {
   const handleClose = () => {
     setIsOpen(false);
     setEditTask({});
+    store.dispatch(fetchTasks());
   };
 
   const handleSubmit = (e) => {

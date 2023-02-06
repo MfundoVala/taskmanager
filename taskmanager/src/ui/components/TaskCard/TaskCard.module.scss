@@ -11,6 +11,8 @@
   margin: 0.6rem;
   border-radius: 15px;
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
   @media screen and (max-width: $md-min) {
     padding: 0 2rem;
     width: 70vw;
@@ -32,7 +34,7 @@
 .heading {
   color: $h1Color;
   font-size: $h4FontSize;
-  font-weight: $h2FontWeight;
+  font-weight: $h1FontWeight;
 }
 
 .descriptionDiv {
@@ -52,7 +54,7 @@
 .description {
   color: $h4Color;
   font-size: $descriptionFontSize;
-  font-weight: $h3FontWeight;
+  font-weight: $h4FontWeight;
 
   @media screen and (max-width: $md-min) {
     font-size: 14px;

@@ -1,26 +1,24 @@
 @use "../../variables" as *;
 
 .Analytics {
-  //   background-color: $backgroundAccent;
+  background-color: $backgroundAccent;
   height: 73%;
   width: 72vw;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  padding: 1rem;
+  padding: 1vw;
   border-radius: 25px 25px 0 0;
-  flex: 6;
   position: fixed;
   right: 20vw;
   bottom: 0;
 
   @media (max-width: $md-min) {
-    height: 100%;
     width: 100%;
-    padding: 0vw;
+    // padding: 3vw;
     padding-top: 100px;
     right: 0;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
   }
 }
