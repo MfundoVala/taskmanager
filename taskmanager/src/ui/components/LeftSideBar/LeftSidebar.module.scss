@@ -1,0 +1,31 @@
+@use "../../variables" as *;
+
+.LeftSidebarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 5vw;
+  height: 100vh;
+  padding-top: 1rem;
+  padding-left: 0.8rem;
+  border-radius: 15px;
+  gap: 5vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  @media screen and (max-width: $md-min) {
+    display: none;
+  }
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+  //   border-radius: 15px;
+}
+
+.navLink {
+  margin-left: 0.3rem;
+}

@@ -13,7 +13,7 @@ import {
 } from "../../../application/redux/taskSlice";
 import TaskCard from "../../components/TaskCard/TaskCard";
 import store from "../../../application/redux/store";
-import CreateButton from "../../components/CreateButton/CreateButton";
+import RoundButton from "../../components/RoundButton/RoundButton";
 import TaskModal from "../../components/TaskModal/TaskModal";
 
 const Dashboard = () => {
@@ -44,6 +44,7 @@ const Dashboard = () => {
       due_date: editTask.due_date,
       assigned_to: editTask.assigned_to,
     };
+
     console.log("taskDash", task);
     editMode
       ? store.dispatch(updateTask(task))
@@ -59,7 +60,20 @@ const Dashboard = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   return (
     <div className={styles.Dashboard}>
-      <CreateButton setIsOpen={setIsOpen} setEditMode={setEditMode} />
+      <div
+        style={{
+          position: "fixed",
+          top: "14vh",
+          right: "20vw",
+          marginRight: "50px",
+        }}
+      >
+        <RoundButton
+          setIsOpen={setIsOpen}
+          setEditMode={setEditMode}
+          symbol={"+"}
+        />
+      </div>
       {tasks.length > 0 &&
         tasks.map((task) => (
           <TaskCard

@@ -1,0 +1,20 @@
+@use "../../variables" as *;
+
+.RighSidebarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  //   background-color: $textColor;
+  width: 18vw;
+  height: 100vh;
+  padding: 0 1rem;
+  margin: 0.6rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  @media screen and (max-width: $md-min) {
+    display: none;
+  }
+}

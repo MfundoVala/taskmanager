@@ -25,20 +25,30 @@ const TaskModal = ({
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            paddingLeft: "20px",
+            paddingRight: "20px",
           }}
         >
           <h1>{editMode ? "Edit Task" : "Create Task"}</h1>
-          <div onClick={handleClose}>
+          <div style={{ cursor: "pointer" }} onClick={handleClose}>
             <h2>X</h2>
           </div>
         </div>
 
         <div className={styles.modalForm}>
-          <label htmlFor="name">Name</label>
+          <label className={styles.modalText} htmlFor="name">
+            Name
+          </label>
           <input
             type="text"
             name="name"
             id="name"
+            style={{
+              height: "30px",
+              width: "50%",
+              borderRadius: "5px",
+              border: "1px solid white",
+            }}
             value={task.name ? task.name : ""}
             onChange={(e) => {
               console.log(e.target.value);
@@ -48,13 +58,16 @@ const TaskModal = ({
               });
             }}
           />
-          <label htmlFor="description">Description</label>
+          <label className={styles.modalText} htmlFor="description">
+            Description
+          </label>
 
           <input
             type="text"
             name="description"
             id="description"
             value={task ? task.description : ""}
+            className={styles.modalInputLarge}
             onChange={(e) => {
               console.log(e.target.value);
               setEditTask({
@@ -63,12 +76,15 @@ const TaskModal = ({
               });
             }}
           />
-          <label htmlFor="status">Status</label>
+          <label className={styles.modalText} htmlFor="status">
+            Status
+          </label>
 
           <input
             type="text"
             name="status"
             id="status"
+            className={styles.modalInput}
             value={task.status ? task.status : ""}
             onChange={(e) => {
               console.log(e.target.value);
@@ -78,12 +94,15 @@ const TaskModal = ({
               });
             }}
           />
-          <label htmlFor="due_date">Due Date</label>
+          <label htmlFor="due_date" className={styles.modalText}>
+            Due Date
+          </label>
 
           <input
             type="text"
             name="due_date"
             id="due_date"
+            className={styles.modalInput}
             value={task.due_date ? task.due_date : ""}
           />
           <div>
@@ -105,12 +124,15 @@ const TaskModal = ({
             />
           </div>
 
-          <label htmlFor="assigned_to">Assigned To</label>
+          <label htmlFor="assigned_to" className={styles.modalText}>
+            Assigned To
+          </label>
 
           <input
             type="text"
             name="assigned_to"
             id="assigned_to"
+            className={styles.modalInput}
             value={
               task.assigned_to && task.assigned_to[0]
                 ? task.assigned_to.map((user) => user.name)
@@ -159,13 +181,28 @@ const TaskModal = ({
             />
             <label htmlFor="option2">Mfundo</label>
           </div>
-          <input
-            type="submit"
-            value={"SUBMIT"}
-            onClick={(e) => handleSubmit(e)}
-          />
-          <hr />
-          <button onClick={(e) => handleDelete(e)}>Delete</button>
+          <div
+            style={{
+              width: "50%",
+              height: "30px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <input
+              type="submit"
+              value={"SUBMIT"}
+              className={styles.modalSubmit}
+              onClick={(e) => handleSubmit(e)}
+            />
+            <button
+              className={styles.modalSubmit}
+              onClick={(e) => handleDelete(e)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

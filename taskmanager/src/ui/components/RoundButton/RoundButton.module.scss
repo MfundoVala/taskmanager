@@ -1,0 +1,56 @@
+@use "../../variables" as *;
+
+$smallFontSize: 0.6rem;
+$smallSize: 27px;
+$marginTop: 30px;
+$marginRight: 30px;
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  background-color: $primaryColor;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: $white;
+
+  text-align: center;
+
+  &.complete {
+    background-color: $completeColor;
+    width: $smallSize;
+    height: $smallSize;
+    font-size: $smallFontSize;
+    margin-right: $marginRight;
+    margin-top: $marginTop;
+  }
+
+  &.inProgress {
+    background-color: $inProgressColor;
+    width: $smallSize;
+    height: $smallSize;
+    font-size: $smallFontSize;
+    margin-right: $marginRight;
+    margin-top: $marginTop;
+  }
+
+  &.notStarted {
+    background-color: $notStartedColor;
+    width: $smallSize;
+    height: $smallSize;
+    font-size: $smallFontSize;
+    margin-right: $marginRight;
+    margin-top: $marginTop;
+  }
+}
+
+// .text {
+//   font-weight: 700;
+//   text-align: center;
+//   font-size: $smallFontSize;
+// }

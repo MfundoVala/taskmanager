@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
   background-color: $white;
-  width: 15vw;
-  height: 30vh;
-  padding: 0 1rem;
-  margin: 0.5rem;
+  width: 23%;
+  height: 36%;
+  // padding: 0 1rem;
+  margin: 0.6rem;
   border-radius: 15px;
   cursor: pointer;
   @media screen and (max-width: $md-min) {
@@ -24,11 +24,73 @@
   border-radius: 50;
 }
 
-.CardHeading {
+.headingDiv {
+  height: 20%;
+  width: 100%;
+  // background-color: $primaryColor;
+  // opacity: 0.9;
+}
+
+.heading {
   color: $h1Color;
   font-size: $h4FontSize;
   font-weight: $h2FontWeight;
-  position: relative;
-  left: 0;
-  top: 0;
+}
+
+.descriptionDiv {
+  height: 40%;
+  width: 100%;
+  // background-color: $backgroundAccent;
+  // opacity: 0.5;
+}
+
+.descriptionInnerDiv {
+  height: 100%;
+  width: 70%;
+  padding-top: 10px;
+  flex-wrap: wrap;
+  // background-color: $primaryColor;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.description {
+  color: $h4Color;
+  font-size: $descriptionFontSize;
+  font-weight: $h3FontWeight;
+}
+
+.imageText {
+  color: $h4Color;
+  font-size: 8px;
+  font-weight: $h2FontWeight;
+}
+
+.statusDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  // background-color: $completeColor;
+  // opacity: 0.5;
+  width: 100%;
+  height: 40%;
+}
+
+.due_date {
+  color: $dateColor;
+  font-size: $descriptionFontSize;
+  font-weight: $h3FontWeight;
+  padding-left: 22px;
+  margin-bottom: -20px;
+}
+
+.FlexLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-left: 22px;
 }
