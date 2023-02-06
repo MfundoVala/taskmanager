@@ -7,17 +7,17 @@ const CreateButton = ({ setIsOpen, setEditMode, symbol, status }) => {
       className={`${styles.ButtonContainer} ${
         !status
           ? ""
-          : status == "Complete"
+          : status === "Complete"
           ? styles.complete
-          : status == "In Progress"
+          : status === "In Progress"
           ? styles.inProgress
-          : status == "Open"
+          : status === "Open"
           ? styles.notStarted
           : ""
       }`}
       onClick={
         status
-          ? ""
+          ? () => {}
           : () => {
               setEditMode(false);
               setIsOpen(true);

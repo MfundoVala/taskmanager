@@ -53,31 +53,32 @@ const TaskCard = ({ task, setIsOpen, setEditTask, setEditMode }) => {
               marginBottom: 5,
             }}
           >
-            {" "}
-            {task.assigned_to.map((user) => (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                key={user.id + "b"}
-              >
-                <img
-                  style={{ width: 25, height: 25, borderRadius: 50 }}
-                  src={user.picture}
-                  alt=""
-                />
-                <span className={styles.imageText}>{user.name}</span>
-              </div>
-            ))}
+            {task.assigned_to
+              ? task.assigned_to.map((user) => (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    key={user.id + "b"}
+                  >
+                    <img
+                      style={{ width: 25, height: 25, borderRadius: 50 }}
+                      src={user.picture}
+                      alt=""
+                    />
+                    <span className={styles.imageText}>{user.name}</span>
+                  </div>
+                ))
+              : null}
           </div>
           <div className={styles.due_date}>Due: {task.due_date}</div>
         </div>
         <RoundButton
           status={task.status}
-          symbol={task.status[0].toUpperCase()}
+          symbol={task.status ? task.status[0].toUpperCase() : "N"}
         />
       </div>
     </div>

@@ -50,15 +50,10 @@ const Analytics = () => {
             Controllers: where the controllers for Data objects are defined
           </li>
         </ul>
-        📦api <br></br>┣ 📂config ┃ ┗ 📜Database.php ┣ 📂controllers ┃ ┣
-        📂employees ┃ ┃ ┣ 📜read_all.php ┃ ┃ ┗ 📜read_single.php ┃ ┗ 📂tasks ┃ ┃
-        ┣ 📜create.php ┃ ┃ ┣ 📜delete.php ┃ ┃ ┣ 📜read_all.php ┃ ┃ ┣
-        📜read_single.php ┃ ┃ ┗ 📜update.php ┣ 📂models ┃ ┣ 📜Employee.php ┃ ┗
-        📜Task.php ┗ 📜taskmanager.sql The Mysql has two tables: Employees and
-        Tasks, a third relational table was originally implemented but I opted
-        to use serialization of and array to establish that relationhip instead
-        as no complex operations would be ran on the database according to the
-        scope of the project.
+        The Mysql has two tables: Employees and Tasks, a third relational table
+        was originally implemented but I opted to use serialization of and array
+        to establish that relationhip instead as no complex operations would be
+        ran on the database according to the scope of the project.
       </h3>
     </div>
   );

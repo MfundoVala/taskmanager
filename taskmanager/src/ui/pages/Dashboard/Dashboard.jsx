@@ -18,6 +18,9 @@ import TaskModal from "../../components/TaskModal/TaskModal";
 
 const Dashboard = () => {
   const tasks = useSelector(selectAllTasks);
+  if (tasks.length > 0) {
+    console.log("tasks", tasks);
+  }
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +36,7 @@ const Dashboard = () => {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     console.log("submitted");
 
     const task = {
@@ -49,25 +52,19 @@ const Dashboard = () => {
     editMode
       ? store.dispatch(updateTask(task))
       : store.dispatch(createNewTask(task));
+
+    handleClose();
   };
 
   const handleDelete = (e) => {
-    console.log("deleted");
-
     store.dispatch(deleteTask(editTask.id));
+    handleClose();
   };
   const [editTask, setEditTask] = useState({});
   const [selectedOptions, setSelectedOptions] = useState([]);
   return (
     <div className={styles.Dashboard}>
-      <div
-        style={{
-          position: "fixed",
-          top: "14vh",
-          right: "20vw",
-          marginRight: "50px",
-        }}
-      >
+      <div className={styles.createButton}>
         <RoundButton
           setIsOpen={setIsOpen}
           setEditMode={setEditMode}
@@ -90,7 +87,7 @@ const Dashboard = () => {
             task={editTask}
             setEditTask={setEditTask}
             selectedOptions={selectedOptions}
-            setSelectedOptions={setEditTask}
+            setSelectedOptions={setSelectedOptions}
             handleSubmit={handleSubmit}
             handleClose={handleClose}
             editMode={editMode}

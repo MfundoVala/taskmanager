@@ -2,7 +2,7 @@
 
 $smallFontSize: 0.6rem;
 $smallSize: 27px;
-$marginTop: 30px;
+$marginTop: 20px;
 $marginRight: 30px;
 
 .ButtonContainer {
@@ -10,13 +10,14 @@ $marginRight: 30px;
   justify-content: center;
   background-color: $primaryColor;
   border-radius: 50px;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 1.2rem;
+  font-weight: 500;
   color: $white;
 
   text-align: center;
@@ -47,10 +48,22 @@ $marginRight: 30px;
     margin-right: $marginRight;
     margin-top: $marginTop;
   }
-}
 
-// .text {
-//   font-weight: 700;
-//   text-align: center;
-//   font-size: $smallFontSize;
-// }
+  @media (max-width: $md-min) {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    margin-right: 20px;
+    margin-top: 0px;
+
+    &.complete,
+    &.inProgress,
+    &.notStarted {
+      width: 35px;
+      height: 35px;
+      font-size: 0.6rem;
+      margin-right: 0px;
+      margin-top: 10px;
+    }
+  }
+}

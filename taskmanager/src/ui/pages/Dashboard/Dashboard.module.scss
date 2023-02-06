@@ -17,12 +17,24 @@
   bottom: 0;
 
   @media (max-width: $md-min) {
-    height: 100%;
     width: 100%;
     padding: 0vw;
     padding-top: 100px;
     right: 0;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.createButton {
+  position: fixed;
+  top: 14vh;
+  right: 20vw;
+  margin-right: 50px;
+
+  @media (max-width: $md-min) {
+    top: 4vh;
+    right: 4vw;
+    margin-right: 40px;
   }
 }
