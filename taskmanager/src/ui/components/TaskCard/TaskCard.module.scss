@@ -1,0 +1,34 @@
+@use "../../variables" as *;
+
+.TaskContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  width: 15vw;
+  height: 30vh;
+  padding: 0 1rem;
+  margin: 0.5rem;
+  border-radius: 15px;
+  cursor: pointer;
+  @media screen and (max-width: $md-min) {
+    padding: 0 2rem;
+    width: 70vw;
+  }
+}
+
+.UserImage {
+  width: 30;
+  height: 30;
+  border-radius: 50;
+}
+
+.CardHeading {
+  color: $h1Color;
+  font-size: $h4FontSize;
+  font-weight: $h2FontWeight;
+  position: relative;
+  left: 0;
+  top: 0;
+}

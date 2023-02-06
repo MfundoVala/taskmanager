@@ -1,0 +1,26 @@
+@use "../../variables" as *;
+
+.Dashboard {
+  background-color: $backgroundAccent;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: scroll;
+  padding: 3vw;
+  padding-top: 10vh;
+  border-radius: 25px;
+
+  @media (max-width: $md-min) {
+    // height: fit-content;
+    // flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding-top: 3rem;
+    flex-direction: column;
+    padding: 10vw;
+    padding-top: 80px;
+  }
+}
